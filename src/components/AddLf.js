@@ -8,6 +8,7 @@ import {
   createLF as createLFAction,
   clearData
 } from "../actions/createLFAction";
+import { fetchProfile } from '../actions/fetchProfile';
 export class AddLf extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,9 @@ export class AddLf extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  componentDidMount() {
+    this.props.getProfile();
   }
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -28,7 +32,13 @@ export class AddLf extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { status, clearData } = nextProps;
+    const { status, clearData, profile, history } = nextProps;
+    if(profile.success.data.role !== 'Super LF') {
+      toast.error('Unauthorized Page', {
+        position: toast.POSITION.TOP_RIGHT
+      });
+      history.push('/login');
+    }
     if (status.success) {
       toast.success(status.success, {
         position: toast.POSITION.TOP_RIGHT
@@ -66,13 +76,15 @@ export class AddLf extends Component {
   }
 }
 
-const mapStateToProps = ({createLF}) => ({
-  status: createLF
+const mapStateToProps = ({createLF, profile}) => ({
+  status: createLF,
+  profile
 });
 
 const mapDispatchToProps = dispatch => ({
   createLF: data => dispatch(createLFAction(data)),
-  clearData: () => dispatch(clearData())
+  clearData: () => dispatch(clearData()),
+  getProfile: () => dispatch(fetchProfile())
 });
 
 export default connect(
