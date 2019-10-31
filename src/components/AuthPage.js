@@ -3,18 +3,18 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+
 import { authUser } from '../actions/authAction';
 import '../styles/authLogin.scss';
 import loginLogo from '../assets/pulse_logo.svg';
 
-class AuthPage extends Component {
+export class AuthPage extends Component {
     static propTypes = {
         match: PropTypes.object.isRequired,
         location: PropTypes.object.isRequired,
         history: PropTypes.object.isRequired,
         authUser: PropTypes.func.isRequired,
-        auth: PropTypes.object.isRequired,
-        toastManager: PropTypes.object.isRequired,
+        auth: PropTypes.object,
     };
 
     constructor(props) {
@@ -30,10 +30,11 @@ class AuthPage extends Component {
         }
     }
 
-    componentDidUpdate() {
-        if (this.props.auth.user.token) {
-            localStorage.setItem('token', this.props.auth.user.token);
-            this.props.history.push('/profile');
+    componentWillReceiveProps(nextProps) {
+        const { auth, history } = nextProps;
+        if (auth.user.token) {
+            localStorage.setItem('pulseToken', auth.user.token);
+            history.push('/profile');
         } else {
             //TODO: log toast 
             // console.log(`error -> ${this.props.auth.errors.message}`);
@@ -41,7 +42,7 @@ class AuthPage extends Component {
     }
     render() {
         return (
-            <div style={{ backgroundColor: '#3e55c5', height: '100vh', width: '100vw' }}>
+            <div className="authPage">
                 <div className="login">
                     <div className="pulse-login">
                         <div className="logo">
@@ -49,11 +50,13 @@ class AuthPage extends Component {
                                 <img src={loginLogo} alt="logo" style={{ width: '110px' }} ></img>
                             </span>
                         </div>
-                        <div><h1>PULSE </h1>
+                        <div className="pulse-title">
+                        <h1>PULSE 
+                        </h1>
                         </div>
-                        <a className="btn-login" href="http://localhost:3000/api/v1/users/auth/google">
+                        <a className="btn-login" href="http://dev-rating-manager-staging.herokuapp.com/api/v1/users/auth/google">
                             <span className="icon"></span>
-                            <span className="login-text">Sign in to get started</span>
+                            <span className="login-txt">Sign in to get started</span>
                         </a>
                     </div>
                 </div>
