@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 class Header extends Component {
+    
+    
     render() { 
         const activeStyle = {color: "black"}
         const NotactiveStyle = {textDecoration: "none"}
@@ -14,7 +16,7 @@ class Header extends Component {
         </span>
         <ul className="navLinks">
             <li><NavLink to="/profile" style={NotactiveStyle} activeStyle={activeStyle}>Profile</NavLink></li>
-            <li><NavLink to="/" style={NotactiveStyle} activeStyle={activeStyle} exact>SignOut</NavLink></li>
+            <li><NavLink to="/" style={NotactiveStyle} activeStyle={activeStyle} exact>Signout</NavLink></li>
         </ul>
         </nav>
         <div style={{height: 22}}></div> 

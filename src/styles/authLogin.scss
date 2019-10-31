@@ -1,0 +1,41 @@
+
+.login {
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+.icon {
+    display: inline-block;
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQ0MyIgaGVpZ2h0PSIyNTAwIiB2aWV3Q…c3IDM5Ljg5MS01NC4yNTEgNzQuNDE0LTU0LjI1MSIgZmlsbD0iI0VCNDMzNSIvPjwvc3ZnPg==) no-repeat 50%;
+}
+
+.pulse-login {
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  width: 30%;
+  min-width: 400px;
+  background-color: #3e58e0;
+  vertical-align: text-top;
+  color: #fff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-login {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    background: #fff;
+    text-decoration: none;
+    height: 50px;
+    padding: 1rem;
+    border-radius: 2px;
+}
