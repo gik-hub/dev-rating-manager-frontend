@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
-import { connect } from 'react-redux';
-import { toast } from 'react-toastify'
+import { connect } from "react-redux";
+import { toast } from "react-toastify";
 import TextBox from "./shared/TextBox";
 import Button from "./shared/Button";
-import { createLF as createLFAction, clearData } from '../actions/createLFAction';
+import {
+  createLF as createLFAction,
+  clearData
+} from "../actions/createLFAction";
 class AddLf extends Component {
   constructor(props) {
     super(props);
@@ -28,13 +31,13 @@ class AddLf extends Component {
     const { status, clearData } = this.props;
     if (status.success) {
       toast.success(status.success, {
-        position: toast.POSITION.TOP_RIGHT,
+        position: toast.POSITION.TOP_RIGHT
       });
       clearData();
     }
     if (status.error) {
       toast.error(status.error, {
-        position: toast.POSITION.TOP_RIGHT,
+        position: toast.POSITION.TOP_RIGHT
       });
       clearData();
     }
@@ -48,6 +51,7 @@ class AddLf extends Component {
         </center>
         <form onSubmit={this.handleSubmit}>
           <TextBox
+            id="email"
             label="Email"
             type="email"
             name="email"
@@ -55,21 +59,21 @@ class AddLf extends Component {
             value={this.state.email}
             onChange={this.onChange}
           />
-          <Button value="Add" />
+          <Button id="addLF" value="Add" />
         </form>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   status: state.createLF
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  createLF: (data) => dispatch(createLFAction(data)),
+const mapDispatchToProps = dispatch => ({
+  createLF: data => dispatch(createLFAction(data)),
   clearData: () => dispatch(clearData())
-})
+});
 
 export default connect(
   mapStateToProps,
