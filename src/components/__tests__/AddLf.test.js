@@ -18,11 +18,20 @@ let wrapper;
 describe("Add LF Component", () => {
    const handleSubmit = jest.fn();
    const handleChange = jest.fn();
+   const getProfile = jest.fn();
+   const profile = {
+     success: {
+       data: {}
+     }
+   }
+   const history = {
+     push: jest.fn()
+   }
   beforeEach(() => {
     wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
-          <AddLf></AddLf>
+          <AddLf getProfile={getProfile} profile={profile} history={history}></AddLf>
         </MemoryRouter>
       </Provider>
     );
@@ -43,12 +52,12 @@ describe("Add LF Component", () => {
     expect(handleChange).toBeCalledTimes(0);
   });
   it('should simulate a input change', () => {
-    const component = shallow(<AddLfComponent/>);
+    const component = shallow(<AddLfComponent getProfile={getProfile} profile={profile} history={history}/>);
     const nextPropsSuccess = {status: { success: true }, clearData: jest.fn()};
     component.setProps(nextPropsSuccess);
   });
   it('should simulate a input change', () => {
-    const component = shallow(<AddLfComponent/>);
+    const component = shallow(<AddLfComponent getProfile={getProfile} profile={profile} history={history}/>);
     const nextPropsError = {status: { error: true }, clearData: jest.fn()};
     component.setProps(nextPropsError);
   });
