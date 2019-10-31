@@ -18,24 +18,24 @@ class Table extends Component {
       "Initiative",
       "Communication",
       "Proffesionalism",
-      "Rating"
+      "Rate"
     ];
     let items = [];
 
     const { engineers } = this.props.engineers;
-    console.log('************* the engineers are : ', engineers);
 
     try {
       engineers.map(engineer => {
         let engineerRatings = {};
+        engineerRatings.id = engineer.user,
         engineerRatings.name = `${engineer.User.firstName} ${engineer.User.lastName}`,
           engineerRatings.ratings = [
             engineerRatings.quality = engineer.quality,
             engineerRatings.quantity = engineer.quantity,
-            engineerRatings.initiative = engineer.initiative,
-            engineerRatings.professionalism = engineer.professionalism,
-            engineerRatings.communication = engineer.communication,
             engineerRatings.integration = engineer.integration,
+            engineerRatings.initiative = engineer.initiative,
+            engineerRatings.communication = engineer.communication,
+            engineerRatings.professionalism = engineer.professionalism,
           ]
 
         items.push(engineerRatings);

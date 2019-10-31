@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import {
   rateEngineer,
   loadEngineers
@@ -10,42 +11,45 @@ import EngeneerList from './EngeneerList';
 import RatingForm from './RateForm';
 
 const RatingsPage = ({
-  rateEngineer,
   loadEngineers,
   myEngineers,
+  loadRatings,
+  ratings,
   ...props
 }) => {
-  
   const [rating, setRating] = useState({ ...props.rating });
   const [savingRating, setsavingRating] = useState(false);
 
-  useEffect( () => {
-      if (myEngineers.length === 0) {
-        loadEngineers();
-      }
-      // Array of item to watch => rereun if anything in this array change
-    },[] );
-
-    const handleChange = (event) => {
-      alert('chaged')
-      console.log(event);
-      
+  useEffect(() => {
+    if (myEngineers.length === 0) {
+      loadEngineers();
+      // loadEngineers().catch(error => {
+      //   alert('Loading ratings failed' + error);
+      // });
     }
-
-  function handleSave(event) {
-    alert('clicked')
-    console.log('-------> ', event);
-    
-    event.preventDefault();
-    setsavingRating(true);
-    rateEngineer(rating);
-  }
+    if (ratings.length === 0) {
+      console.log('no ratings in redux store found');
+      // loadRatings().catch(error => {
+      //   alert('Loading ratings failed' + error);
+      // });
+    }
+    // Array of item to watch => rereun if anything in this array change
+  }, []);
 
   return (
     <>
+      <>
+        <button
+          style={{ marginBottom: 20 }}
+          className="btn btn-primary add-course"
+          onClick={ console.log('clicked') }
+        >
+          Rate Engineer
+        </button>
+
+      </>
       <h2> Rate Engineer </h2>
-      <EngeneerList engineers={myEngineers} onRateClick={rateEngineer} /> 
-      <RatingForm onSave={handleSave} onChange={handleChange} rating={rating}/>
+      <EngeneerList engineers={myEngineers} />
     </>
   );
 };
@@ -53,19 +57,18 @@ const RatingsPage = ({
 RatingsPage.propTypes = {
   rating: PropTypes.object.isRequired,
   myEngineers: PropTypes.array.isRequired,
-  rateEngineer: PropTypes.func.isRequired,
   loadEngineers: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ engineers }, ownProps) => {
-  const id = ownProps.match.params.id;
+const mapStateToProps = ({ engineers, ratings }) => {
   return {
     rating: newRating,
-    myEngineers: engineers.myEngineers
+    ratings: ratings,
+    myEngineers: engineers
   };
 };
 
-const mapDispatchToProps = { rateEngineer, loadEngineers };
+const mapDispatchToProps = { loadEngineers };
 
 export default connect(
   mapStateToProps,

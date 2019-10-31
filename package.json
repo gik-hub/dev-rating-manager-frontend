@@ -2,7 +2,7 @@
   "name": "ps-redux",
   "description": "Developer Rating manager App",
   "scripts": {
-    "start": " webpack-dev-server --config webpack.config.dev.js --port 5000 --open --hot",
+    "start": " webpack-dev-server --config webpack.config.dev.js --open --hot",
     "test": "jest --coverage"
   },
   "dependencies": {
