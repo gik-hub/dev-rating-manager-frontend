@@ -1,32 +1,34 @@
-import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
-import PropTypes from "prop-types";
-import { Provider } from 'react-redux';
-import configureStore from '../store';
-import { BrowserRouter as Router } from 'react-router-dom';
-import '../styles/App.scss';
-import Header from './shared/Header';
-import HomePage from './HomePage';
-import ProfilePage from './ProfilePage';
-import AuthPage from './AuthPage';
-import NotFoundPage from './shared/NotFound';
-import RatingsPage from './rate/RatingsPage';
-import RateForm from './rate/RateForm';
+import React from "react";
+import { Route, Switch, withRouter, BrowserRouter as Router } from "react-router-dom";
+import Header from "./shared/Header";
+import HomePage from "./HomePage";
+import ProfilePage from "./ProfilePage";
+import NotFoundPage from "./shared/NotFound";
+import RatingsPage from "./rate/RatingsPage";
+import ManageRatingsPage from "./rate/ManageRatingsPage";
+import { Provider } from "react-redux";
+import "../styles/App.scss";
+import configureStore from "../store";
+
+const store = configureStore();
 
 const App = () => {
-    return (<>
-        <Header/>
-        <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <Route path="/login" component={AuthPage} />
-            <Route path="/profile" component={ProfilePage}/>
-            {/* <Route path="/rate" component={RateForm}/> */}
-            <Route path='/ratings/rate/:engId' component={ RateForm } />
-            <Route path='/ratings/rate' component={ RatingsPage } />
-            <Route component={NotFoundPage}/>
-        </Switch>
-        </>
-    )
-}
+  return (
+    <>
+      <Provider store={store}>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/profile" component={ProfilePage} />
+            <Route path="/ratings" exact component={RatingsPage} />
+            <Route path="/ratings/rate/:engId" component={ManageRatingsPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Router>
+      </Provider>
+    </>
+  );
+};
 
 export default withRouter(App);

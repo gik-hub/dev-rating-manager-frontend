@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const EngeneerList = ({ engineers, onRateClick }) => {
-  
+const EngeneerList = ({ engineers }) => {
   return (
     <table>
       <caption>My engineers</caption>
@@ -28,12 +28,9 @@ const EngeneerList = ({ engineers, onRateClick }) => {
             <tr key={engineer.id}>
               <td> {engineer.name} </td>
               <td>
-                <button
-                  className="btn btn-outline-danger"
-                  onClick={() => onRateClick(engineer)}
-                >
-                  Rate
-                </button>
+                <Link to={'/ratings/rate/' + engineer.id}>
+                  <button className="btn btn-outline-danger"> Rate </button>
+                </Link>
               </td>
             </tr>
           );
@@ -44,8 +41,7 @@ const EngeneerList = ({ engineers, onRateClick }) => {
 };
 
 EngeneerList.propTypes = {
-  engineers: PropTypes.array.isRequired,
-  onRateClick: PropTypes.func.isRequired
+  engineers: PropTypes.array.isRequired
 };
 
 export default EngeneerList;

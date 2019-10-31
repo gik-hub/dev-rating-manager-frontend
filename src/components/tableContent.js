@@ -13,7 +13,7 @@ const TableBody = ({ data }) => {
                 <td style={item.integration >= 1 ? { color: 'green' } : { color: 'red' }}>{item.integration}</td>
                 <td style={item.communication >= 1 ? { color: 'green' } : { color: 'red' }}>{item.communication}</td>
                 <td style={item.professionalism >= 1 ? { color: 'green' } : { color: 'red' }}>{item.professionalism}</td>
-                <td><Link to={'/rate'}>
+                <td><Link to={'/ratings/rate/' + item.id}>
                     <button className="button"> Rate </button>
                 </Link></td>
             </tr>
