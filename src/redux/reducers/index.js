@@ -5,3 +5,11 @@ export default combineReducers({
     auth: authReducer,
     getEngineers: getEngineersReducer,
 });
+
+// import signupReducer from './signupReducer';
+// import ratingReducer from './ratingReducer';
+
+// export default combineReducers({
+//  signup: signupReducer,
+//  engineers: ratingReducer
+// });
