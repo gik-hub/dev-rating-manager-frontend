@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -17,6 +18,9 @@ module.exports = {
         historyApiFallback: true
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env.API_URL": JSON.stringify('localhost:3000/api/v1')
+        }),
         new HtmlWebpackPlugin({
             template: 'public/index.html',
         })

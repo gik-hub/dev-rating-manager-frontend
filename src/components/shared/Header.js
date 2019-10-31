@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+
 class Header extends Component {
-    
-    
-    render() { 
+
+
+    render() {
         const activeStyle = {color: "black"}
         const NotactiveStyle = {textDecoration: "none"}
-        return ( 
+        return (
          <>
         <nav className="header shadow-overlay">
-    
+
         <span>
         <img className="logo-img" src="https://res.cloudinary.com/bahati/image/upload/v1572334416/samples/Mystuff/pulse_vjdvgh.png"/>
             <span className="logo-txt">PULSE</span>
@@ -19,10 +20,9 @@ class Header extends Component {
             <li><NavLink to="/" style={NotactiveStyle} activeStyle={activeStyle} exact>SignOut</NavLink></li>
         </ul>
         </nav>
-        <div style={{height: 22}}></div> 
-        </>
-        );
-    }
+      </>
+    );
+  }
 }
- 
+
 export default Header;

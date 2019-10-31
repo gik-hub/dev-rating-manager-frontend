@@ -11,6 +11,8 @@ import HomePage from './HomePage';
 import ProfilePage from './ProfilePage';
 import AuthPage from './AuthPage';
 import AddLf from './AddLf';
+import RatingsPage from './rate/RatingsPage';
+import RateForm from './rate/RateForm';
 import NotFoundPage from './shared/NotFound';
 import '../styles/App.scss';
 
@@ -39,6 +41,9 @@ class App extends Component {
                     <Route path="/profile" component={ProfilePage} />
                     <Route path="/login" component={AuthPage} />
                     <Route path="/add-lf" component={AddLf}/>
+
+            <Route path='/ratings/rate/:engId' component={ RateForm } />
+            <Route path='/ratings/rate' component={ RatingsPage } />
                     <Route component={NotFoundPage} />
                 </Switch>
             </Provider>

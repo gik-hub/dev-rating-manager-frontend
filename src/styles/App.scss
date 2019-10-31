@@ -4,4 +4,142 @@
 *{
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+body, html {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    color: color(text-secondary);
+    background-color: color(back-ground);
+}
+
+.btn {
+    background: color(primary);
+    color: color(whitey);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 40px;
+}
+.btn-smallest {
+    padding: 0 5px;
+    margin-right: 20px;
+    font-size: 18px;
+    height: 25px;
+}
+.btn-delete {
+    background-color: darken(color(text-secondary), 10%);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 2rem;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    background-color: color(primary);
+    color: color(whitey);
+    .logo-img {
+        width: 35px;
+    }
+    menu-icon {
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 6px 0;
+    }
+    ul {
+        list-style-type: none;
+
+    }
+    li {
+        :hover {
+            background-color: darken(color(primary), 10%);
+        }
+        float: left;
+        a {
+            display: block;
+            color: color(whitey);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+    }
+}
+.m-1{
+    margin-left: 5px;
+}
+.container {
+    height: 100%;
+    margin: auto;
+    max-width: 1200px;
+}
+    .main-wrapper {
+        box-shadow: $shadow;
+        margin: 10px;
+        padding: 10px 10px 20px 20px;
+        background: color(whitey);
+        .top {
+            margin-bottom: 30px;
+            color: color(primary)
+        }
+        input {
+            width: 100%;
+            height: 30px;
+            border: none;
+            font-size: 16px;
+            margin-right: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid color(text-secondary);
+        }
+        input:focus {
+            outline-width: 0;
+        }
+        .mylist {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px 20px 20px 30px;
+        }
+        h4 {
+            color: darken(color(text-secondary), 20%);
+        }
+        .relative-div {
+            position: relative;
+        }
+    }
+
+.mylist {
+    .engineer{
+        display: flex;
+        flex-wrap: wrap;
+        background-color: color(back-ground);
+        width: 300px;
+        height: 50px;
+        margin: 10px;
+        text-align: left;
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+.drop-down {
+    width: 100%;
+    max-height: 300px;
+    overflow: auto;
+    box-shadow: 0 2px 5px rgba(104,104,104,0.8);
+    background: #fff;
+    position: absolute;
+    top: 29.4px;
+}
+.drop-down-user {
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bold;
+    display: block;
+}
+.drop-down-user:hover {
+    background-color: color(light-grey);
 }

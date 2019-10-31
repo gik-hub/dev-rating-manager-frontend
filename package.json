@@ -1,6 +1,6 @@
 {
   "name": "ps-redux",
-  "description": "React and Redux Pluralsight course by Cory House",
+  "description": "Developer Rating manager App",
   "scripts": {
     "start": " webpack-dev-server --config webpack.config.dev.js --port 5000 --open --hot",
     "test": "jest --coverage"
