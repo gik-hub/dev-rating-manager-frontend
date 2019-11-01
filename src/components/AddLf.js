@@ -8,13 +8,13 @@ import {
   createLF as createLFAction,
   clearData
 } from "../actions/createLFAction";
-class AddLf extends Component {
+export class AddLf extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: ""
     };
-    this.onChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(e) {
@@ -27,8 +27,8 @@ class AddLf extends Component {
     createLF({ email });
   }
 
-  componentDidUpdate() {
-    const { status, clearData } = this.props;
+  componentWillReceiveProps(nextProps) {
+    const { status, clearData } = nextProps;
     if (status.success) {
       toast.success(status.success, {
         position: toast.POSITION.TOP_RIGHT
@@ -57,7 +57,7 @@ class AddLf extends Component {
             name="email"
             placeholder="Input User Email"
             value={this.state.email}
-            onChange={this.onChange}
+            onChange={this.handleChange}
           />
           <Button id="addLF" value="Add" />
         </form>
@@ -66,8 +66,8 @@ class AddLf extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  status: state.createLF
+const mapStateToProps = ({createLF}) => ({
+  status: createLF
 });
 
 const mapDispatchToProps = dispatch => ({

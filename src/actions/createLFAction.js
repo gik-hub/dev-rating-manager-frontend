@@ -5,7 +5,7 @@ export const createLF = data => async (dispatch) => {
     try {
         const config = {
             headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZ29vZ2xlSWQiOiIxMDc2MjAwMTI3NDE0MDU5Njg4MzciLCJmaXJzdE5hbWUiOiJTdXBlciIsImxhc3ROYW1lIjoiTEYiLCJlbWFpbCI6Im1hcnZlbGRldjUzQGdtYWlsLmNvbSIsInJvbGUiOiJTdXBlciBMRiIsImNyZWF0ZWRBdCI6IjIwMTktMTAtMjFUMTI6MTI6MTIuNDgyWiIsInVwZGF0ZWRBdCI6IjIwMTktMTAtMjFUMTI6MTI6MTIuNDgyWiIsImlhdCI6MTU3MjQ0MzU2OCwiZXhwIjoxNTcyNTI5OTY4fQ.8c9R5YKRPj-H3_sizXO7DFuQ4B8gRgCHdLDpvumN2Hg',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZ29vZ2xlSWQiOiIxMDc2MjAwMTI3NDE0MDU5Njg4MzciLCJmaXJzdE5hbWUiOiJTdXBlciIsImxhc3ROYW1lIjoiTEYiLCJlbWFpbCI6Im1hcnZlbGRldjUzQGdtYWlsLmNvbSIsInJvbGUiOiJTdXBlciBMRiIsImNyZWF0ZWRBdCI6IjIwMTktMTAtMjFUMTI6MTI6MTIuNDgyWiIsInVwZGF0ZWRBdCI6IjIwMTktMTAtMjFUMTI6MTI6MTIuNDgyWiIsImlhdCI6MTU3MjUzMDM1NSwiZXhwIjoxNTcyNjE2NzU1fQ.35gGu3EQz6LJ7g7-6To3nZpuMG4wav_1dqAt-buUqt0',
             }
         }
         const response = await db.patch('/users/make-lf', data, config)
