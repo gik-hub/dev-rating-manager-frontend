@@ -1,12 +1,16 @@
-import * as types from '../actions/actionType';
-import initialState from './initialState';
+import { RATE_ENGINEER_SUCCESS, UPDATE_RATING_SUCCESS } from '../actions/actionType';
+
+const initialState = {
+  myEngineers: [],
+  ratings: []
+}
 
 const ratingReducer = (state = initialState.ratings, action) => {
   switch (action.type) {
-    case types.RATE_ENGINEER_SUCCESS:
+    case RATE_ENGINEER_SUCCESS:
       debugger;
       return [...state, { ...action.savedRatings }];
-    case types.UPDATE_RATING_SUCCESS:
+    case UPDATE_RATING_SUCCESS:
       return state.map(rating =>
         rating.id === action.newRating.id ? action.newRating : rating
       );

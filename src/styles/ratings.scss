@@ -4,9 +4,11 @@
   max-width: 960px;
   margin: 0 auto;
   clear: both;
+  margin-top: 20px;
 }
 
 .flex-parent {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -14,6 +16,10 @@
   text-align: center;
   padding: 40px;
   clear: both;
+  background: white;
+  >div {
+    background: white;
+  }
 }
 
 .rate-editor {
@@ -57,7 +63,6 @@ select {
 
 .rate-btn {
   position: relative;
-  display: block;
   width: 100px;
   margin-top: 40px;
   padding: 12px 8px;
@@ -65,8 +70,6 @@ select {
   margin-bottom: 15px;
   outline: none;
   border:0;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  background: dodgerblue;
   color: white;
   font-size: 14px;
 }

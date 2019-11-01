@@ -2,30 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  rateEngineer,
-  loadEngineers
-} from '../../redux/actions/engineerAction';
+  rateEngineer
+} from '../../actions/engineerAction';
 import { newRating } from '../../__mocks__/mockData';
 import RatingForm from './RateForm';
 
 const ManageRatingsPage = ({
   rateEngineer,
-  loadEngineers,
-  // myEngineers,
-  // ratings,
+  myEngineers,
   history,
   ...props
 }) => {
   // set come local states e.g. rating before we save it
   const [rating, setRating] = useState({ ...props.rating });
   const [savingRating, setsavingRating] = useState(false);
-
-  // useEffect(() => {
-  //   if (myEngineers.length === 0) {
-  //     loadEngineers();
-  //   }
-  //   // Array of item to watch => rereun if anything in this array change
-  // }, []);
 
   const handleChange = event => {
     if (event.target.id === 'rate') {
@@ -50,8 +40,6 @@ const ManageRatingsPage = ({
 
   function handleRateSave(event) {
     event.preventDefault();
-    debugger;
-
     // set the local state to savingRating
     setsavingRating(true);
     // rating is the local state being set locally above
@@ -60,9 +48,13 @@ const ManageRatingsPage = ({
     history.push('/')
   }
 
+  const endineerId = parseInt(rating.user, 10);
+  const engineer = getEngineerById(myEngineers, endineerId);
+  const name = `${engineer.User.firstName} ${engineer.User.lastName}`;
+
   return (
     <RatingForm
-      // engineers={myEngineers}
+      engineer={name}
       onRate={handleRateSave}
       onChange={handleChange}
       rating={rating}
@@ -73,25 +65,24 @@ const ManageRatingsPage = ({
 ManageRatingsPage.propTypes = {
   rating: PropTypes.object.isRequired,
   // ratings: PropTypes.array.isRequired,
-  // myEngineers: PropTypes.array.isRequired,
+  myEngineers: PropTypes.array.isRequired,
   rateEngineer: PropTypes.func.isRequired,
-  loadEngineers: PropTypes.func.isRequired
 };
 
-export function getEngineerById(myEngineers, id) {
-    return myEngineers.find(engineer => engineer.id === id) || null;
-  }
+const getEngineerById = (myEngineers, id) => {
+    return myEngineers.find(engineer => engineer.user === id);
+}
 
-const mapStateToProps = ({ engineers, ratings }, ownProps) => {
+const mapStateToProps = ({ getEngineers, ratings }, ownProps) => {
   const engId = ownProps.match.params.engId;
   return {
     rating: {...newRating, user: engId},
-    myEngineers: engineers,
+    myEngineers: getEngineers.engineers,
     ratings
   };
 };
 
-const mapDispatchToProps = { rateEngineer, loadEngineers };
+const mapDispatchToProps = { rateEngineer };
 
 export default connect(
   mapStateToProps,

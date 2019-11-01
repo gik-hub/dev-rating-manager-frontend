@@ -1,10 +1,8 @@
 import React from 'react';
 import '../../styles/ratings.scss';
 import PropTypes from 'prop-types';
-import { handleError } from '../../api/apiUtils';
 
-const RateForm = ({ onRate, rating, onChange }) => {
-  console.log('rating passed to save',rating);
+const RateForm = ({ onRate, rating, onChange, engineer }) => {
   const rateSpec = [
     'quality',
     'quantity',
@@ -13,18 +11,19 @@ const RateForm = ({ onRate, rating, onChange }) => {
     'integration',
     'initiative'
   ];
-
-
   return (
     <div className="wrapper">
+      <div className="tableHeader">
+        <p>{engineer}</p>
+      </div>
       <div className="flex-parent">
         {rateSpec.map(rate => (
           <CategoryElement key={rate} category={rate} onChange={onChange}/>
         ))}
       </div>
-
-      <button type="submit" className='rate-btn' onClick={onRate}> Rate </button>
-
+      <div>
+        <button type="submit" className='btn rate-btn' onClick={onRate}> Rate </button>
+      </div>
     </div>
   );
 };
@@ -49,7 +48,8 @@ const CategoryElement = ({ category, onChange }) => {
 RateForm.propTypes = {
   rating: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
-  onRate: PropTypes.func.isRequired
+  onRate: PropTypes.func.isRequired,
+  engineer: PropTypes.string.isRequired,
 }
 
 CategoryElement.propTypes = {

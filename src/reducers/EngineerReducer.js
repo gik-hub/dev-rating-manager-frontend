@@ -1,19 +1,21 @@
-import { FETCH_ENGINEER } from '../actions/actionType';
+import { FETCH_ENGINEER, FETCH_RATING } from '../actions/actionType';
 
 const initialState = {
-    "departments":[],
-    'errors':{}
+  user: {},
+  average: [],
+  ratings: [],
 };
 
 const EngineerReducer = (state = initialState, action) => {
-    console.log(action);
-
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case FETCH_ENGINEER:
-    return { ...state, departments: action.payload };
+      return { ...state, user: payload };
+    case FETCH_RATING:
+      return { ...state, average: payload.average, ratings: payload.ratings  };
     default:
-    return state;
+      return state;
   }
 };
 
-  export default EngineerReducer;
+export default EngineerReducer;

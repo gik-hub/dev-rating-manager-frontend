@@ -9,23 +9,24 @@ td {
 }
 
 .tableHeader {
-  width: 70%;
-  height: 30px;
+  height: 50px;
   margin: 10px auto;
-  color: #2349f3;
+  color: #3359de;
   font-size: 20px;
   padding-top: 15px;
   padding-left: 16px;
   background: white;
+  margin-bottom: 20px;
 }
 
 .table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   border-collapse: separate;
   border-spacing: 0px 5px;
   background: rgb(239, 244, 248);
+  margin-top: 20px;
 }
 
 .table td,
@@ -43,17 +44,19 @@ td {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #2349f3;
+  background-color: #3359de;
   color: white;
 }
+.name {
+  text-decoration: none;
+  color: #3359de;
+} 
 
 .button {
   width: 60px;
   height: 30px;
-  // color: #2349f3;
   color: white;
   border-radius: 4px;
   font-size: 12px;
-  background: rgb(41, 69, 228);
-  // border: 1px solid rgb(41, 69, 228);
+  background: #3359de;
 }

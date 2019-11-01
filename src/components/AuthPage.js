@@ -23,38 +23,42 @@ export class AuthPage extends Component {
     }
 
     componentDidMount() {
-        if(localStorage.getItem('pulseToken')){
-            this.props.getProfile();
-        }
-        const { location } = this.props;
-        const base64encoded = location.search.split('&')[0].split('?code=')[1];
-        if (base64encoded) {
-            const decoded = JSON.parse(atob(base64encoded));
-            this.props.authUser(decoded);
-        }
+      if (localStorage.getItem('pulseToken')) {
+        this.props.getProfile();
+      }
+      const { location } = this.props;
+      const base64encoded = location.search.split('&')[0].split('?code=')[1];
+      if (base64encoded) {
+        const decoded = JSON.parse(atob(base64encoded));
+        this.props.authUser(decoded);
+      }
     }
 
     componentWillReceiveProps(nextProps) {
-        const { auth, history, profile, getProfile } = nextProps;
-        if (auth.user.token) {
-            localStorage.setItem('pulseToken', auth.user.token);
+      const {
+        auth, history, profile, getProfile,
+      } = nextProps;
+      if (auth.user.token) {
+        localStorage.setItem('pulseToken', auth.user.token);
+      }
+      if (localStorage.getItem('pulseToken')) {
+        getProfile();
+      }
+      if (profile.success) {
+        switch (profile.success.data.role) {
+          case 'Engineer':
+            history.push(`/users/${profile.success.data.id}`);
+            break;
+          case 'LF':
+            history.push('/profile');
+            break;
+          case 'Super LF':
+            history.push('/add-lf');
+            break;
+          default:
+            history.push('/login');
         }
-        if(localStorage.getItem('pulseToken')){
-            getProfile();
-        }
-        if(profile.success){
-            switch(profile.success.data.role) {
-                case 'Engineer':
-                    history.push('/profile');
-                    break;
-                case 'LF':
-                    history.push('/profile');  
-                    break;
-                case 'Super LF':
-                    history.push('/add-lf');  
-                    break;
-            }
-        }
+      }
     }
 
     render() {
@@ -85,8 +89,8 @@ PULSE
 
 const mapStateToProps = (state) => ({ auth: state.auth, profile: state.profile });
 const mapDispatchToProps = (dispatch) => ({
-    authUser: (data) => dispatch(authUser(data)),
-    getProfile: () => dispatch(fetchProfile())
+  authUser: (data) => dispatch(authUser(data)),
+  getProfile: () => dispatch(fetchProfile()),
 });
 
 export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(AuthPage);
