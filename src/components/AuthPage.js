@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
@@ -5,6 +6,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import { authUser } from '../actions/authAction';
+import { fetchProfile } from '../actions/fetchProfile';
 import '../styles/authLogin.scss';
 import loginLogo from '../assets/pulse_logo.svg';
 
@@ -31,10 +33,26 @@ export class AuthPage extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { auth, history } = nextProps;
-        if (auth.user.token) {
+        const { auth, history, profile, getProfile } = nextProps;
+        if(localStorage.getItem('pulseToken')){
+            getProfile();
+        }
+        if(profile.success){
+            switch(profile.success.data.role) {
+                case 'Engineer':
+                    history.push('/profile');
+                    break;
+                case 'LF':
+                    history.push('/profile');  
+                    break;
+                case 'Super LF':
+                    history.push('/add-lf');  
+                    break;
+            }
+        }
+        if (auth.user.token && !localStorage.getItem('pulseToken')) {
             localStorage.setItem('pulseToken', auth.user.token);
-            history.push('/profile');
+            history.push('/login');
         } else {
             //TODO: log toast 
             // console.log(`error -> ${this.props.auth.errors.message}`);
@@ -65,7 +83,10 @@ export class AuthPage extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({ auth: state.auth });
-const mapDispatchToProps = (dispatch) => ({ authUser: (data) => dispatch(authUser(data)) });
+const mapStateToProps = (state) => ({ auth: state.auth, profile: state.profile });
+const mapDispatchToProps = (dispatch) => ({
+    authUser: (data) => dispatch(authUser(data)),
+    getProfile: () => dispatch(fetchProfile())
+});
 
 export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(AuthPage);

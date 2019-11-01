@@ -17,7 +17,6 @@ class Header extends Component {
         <ul className="navLinks">
             <li><NavLink to="/profile" style={NotactiveStyle} activeStyle={activeStyle}>Profile</NavLink></li>
             <li><NavLink to="/" style={NotactiveStyle} activeStyle={activeStyle} exact>SignOut</NavLink></li>
-            <li><NavLink to="/add-lf" style={NotactiveStyle} activeStyle={activeStyle} exact>Add LF</NavLink></li>
         </ul>
         </nav>
         <div style={{height: 22}}></div> 
