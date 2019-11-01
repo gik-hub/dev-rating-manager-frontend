@@ -1,0 +1,59 @@
+div {
+  background: rgb(239, 244, 248);
+}
+
+td {
+  padding: 3px;
+  margin: 5px;
+  text-align: center;
+}
+
+.tableHeader {
+  width: 70%;
+  height: 30px;
+  margin: 10px auto;
+  color: #2349f3;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-left: 16px;
+  background: white;
+}
+
+.table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  width: 70%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0px 5px;
+  background: rgb(239, 244, 248);
+}
+
+.table td,
+.table th {
+  border: 0px solid #ddd;
+  background: white;
+  padding: 20px;
+}
+
+.table tr:hover {
+  background-color: rgb(146, 15, 15);
+}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2349f3;
+  color: white;
+}
+
+.button {
+  width: 60px;
+  height: 30px;
+  // color: #2349f3;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  background: rgb(41, 69, 228);
+  // border: 1px solid rgb(41, 69, 228);
+}
