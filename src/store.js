@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from "redux";
-import combineReducers from './store';
+import combineReducers from './reducers';
 import thunk from 'redux-thunk';
 import RISI from 'redux-immutable-state-invariant';
 export default function configureStore(initialState){

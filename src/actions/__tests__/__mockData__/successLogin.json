@@ -1,0 +1,15 @@
+{
+    "status": 200,
+    "message": "Successfully logged in",
+    "data": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZ29vZ2xlSWQiOiIxMTQ3MTA0OTg1NjEwNTc1ODc1MTUiLCJmaXJzdE5hbWUiOiJGcmVkIiwibGFzdE5hbWUiOiJNdWN5byIsImVtYWlsIjoiZnJlZC5tdWN5b0BhbmRlbGEuY29tIiwicm9sZSI6IkVuZ2luZWVyIiwiY3JlYXRlZEF0IjoiMjAxOS0xMC0yOVQxNTozOTozMi43MjFaIiwidXBkYXRlZEF0IjoiMjAxOS0xMC0yOVQxNTozOTozMi43MjFaIiwiaWF0IjoxNTcyNDQ0MzMxLCJleHAiOjE1NzI1MzA3MzF9.4rmcluvJJu1YX_iSK-IOxNigWBJZHQPN8L1Llv6hjn4",
+        "id": 9,
+        "googleId": "114710498561057587515",
+        "firstName": "Fred",
+        "lastName": "Mucyo",
+        "email": "fred.mucyo@andela.com",
+        "role": "Engineer",
+        "createdAt": "2019-10-29T15:39:32.721Z",
+        "updatedAt": "2019-10-29T15:39:32.721Z"
+    }
+}
