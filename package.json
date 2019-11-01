@@ -2,8 +2,12 @@
   "name": "ps-redux",
   "description": "React and Redux Pluralsight course by Cory House",
   "scripts": {
-    "start": " webpack-dev-server --config webpack.config.dev.js --port 5000 --open --hot",
-    "test": "jest --coverage"
+    "start:dev": "webpack-dev-server --config webpack.config.dev.js --port 5000 --open --hot",
+    "test": "jest --coverage",
+    "clean:build": "rimraf ./build && mkdir build",
+    "prebuild": "run-p clean:build",
+    "build": "webpack --config webpack.config.dev.js",
+    "start": "http-server ./build"
   },
   "dependencies": {
     "bootstrap": "4.3.1",
@@ -18,7 +22,9 @@
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
     "reselect": "4.0.0",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.0",
+    "http-server": "0.11.1",
+    "file-loader": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.3.4",

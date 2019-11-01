@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Route , Switch, withRouter } from 'react-router-dom';
 import PropTypes from "prop-types";
 import { Provider } from 'react-redux';
-import configureStore from '../store';
+import configureStore from '.././configureStore';
 import Header from './shared/Header';
 import HomePage from './HomePage';
 import ProfilePage from './ProfilePage';
+// eslint-disable-next-line import/no-named-as-default
 import AuthPage from './AuthPage';
 import NotFoundPage from './shared/NotFound';
 import '../styles/App.scss';
