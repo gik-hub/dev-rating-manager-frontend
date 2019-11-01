@@ -34,7 +34,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       minify: {
-        // see https://github.com/kangax/html-minifier#options-quick-reference
         removeComments: true,
         collapseWhitespace: true,
         removeRedundantAttributes: true,
