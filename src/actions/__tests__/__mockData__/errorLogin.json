@@ -1,0 +1,5 @@
+{
+    "status": 422,
+    "message": "The email has to be a valid Andela email!",
+    "error": "Validation Error"
+}

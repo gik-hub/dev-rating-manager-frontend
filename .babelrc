@@ -1,5 +1,9 @@
 {
-    "presets": [
-      "babel-preset-react-app"
-    ]
-  }
+  "presets": [
+    "babel-preset-react-app"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-class-properties"
+  ]
+}

@@ -1,1 +1,10 @@
-export const ADD_USER = 'ADD_USER'
+export const AUTH_USER = 'AUTH_USER';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const ADD_USER = 'ADD_USER';
+export const MY_ENGINEERS = 'MY_ENGINEERS';
+export const REMOVE_ENGINEERS = 'REMOVE_ENGINEERS';
+export const REPLACE_ENGINEERS = 'REPLACE_ENGINEERS';
+export const SAVE_ENGINEERS = 'SAVE_ENGINEERS';
+export const GET_USERS = 'GET_USERS';
+export const ADD_ENGINEER = 'ADD_ENGINEER';
+export const REDIRECT_USER = 'REDIRECT_USER';
