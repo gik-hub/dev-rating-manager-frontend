@@ -1,0 +1,66 @@
+@import './shared/colors.scss';
+
+.main{
+    position: absolute;
+    z-index: -1;
+    top: 100px;
+    width: 88vw;
+}
+.user-profile{
+    margin-left: 3vw;
+    width: 87vw;
+}
+.profile-bar{
+    position: relative;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    list-style-type: none;
+    padding: 20px 30px 10px 21px;
+    line-height: 18.2px;
+    background-color: #eef4f9;
+}
+
+.profile-bar-item {
+    text-align: center;
+    float: left;
+    margin: 5px;
+
+    &:first-of-type {
+        margin-right: 60px;
+      }
+  }
+
+.light-box-shadow{
+    box-shadow: 0 0 15px #00000030;
+}
+
+.dev-rating{
+    margin: 8vh 0vh 20vh 3vw;
+}
+th, td {
+    line-height: 18.2px;
+    text-align: center;
+  }
+  th{
+      color: white;
+      background-color: #3C58D7;
+      padding: 40px 40px 10px 40px;
+  }
+  td{
+      background-color: $background-color-seconday;
+      margin-top: 20px;
+      padding: 50px 50px;
+  }
+
+  .sm{
+    padding: 10px 40px 10px 40px;
+  }
+
+  .avg{
+      margin-bottom: 60px;
+  }
+
+.table-row-header{
+    margin-bottom: 20px;
+}

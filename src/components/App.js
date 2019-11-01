@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* eslint-disable import/no-named-as-default */
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -9,6 +10,20 @@ import configureStore from '../store';
 import Header from './shared/Header';
 import HomePage from './HomePage';
 import ProfilePage from './ProfilePage';
+=======
+import React from "react";
+import { Route, Switch, withRouter, BrowserRouter as Router } from "react-router-dom";
+import Header from "./shared/Header";
+import HomePage from "./HomePage";
+import ProfilePage from "./ProfilePage";
+import NotFoundPage from "./shared/NotFound";
+import singleEngineer from './singleEngineer';
+import RatingsPage from "./rate/RatingsPage";
+import ManageRatingsPage from "./rate/ManageRatingsPage";
+import { Provider } from "react-redux";
+import "../styles/App.scss";
+import configureStore from "../store";
+>>>>>>> ft(view-single-user)get single user:
 import AuthPage from './AuthPage';
 import AddLf from './AddLf';
 import RatingsPage from './rate/RatingsPage';
