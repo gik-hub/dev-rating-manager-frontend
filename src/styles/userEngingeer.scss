@@ -1,0 +1,53 @@
+.main{
+    width: 85vw;
+    position: absolute;
+    top: 7vw;
+}
+.user_profile{
+    margin-left: 8vw;
+    position: relative;
+    z-index: -1;
+}
+.navbar {
+    font-size: 14px;
+    font-weight: 300;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 30px 10px 21px;
+    line-height: 18.2px;
+    overflow: hidden;
+}
+
+  .navbar-list {
+    float: left;
+    margin: 5px;
+
+    &:first-of-type {
+        margin-right: 60px;
+      }
+  }
+
+
+
+
+.light-box-shadow{
+    box-shadow: 0 0 15px #00000030;
+}
+
+.dev-rating{
+    margin: 8vh 0 0 15vh;
+}
+.table-col-header, .table-col {
+    line-height: 18.2px;
+    text-align: center;
+  }
+  .table-col-header{
+      color: white;
+      background-color: #3C58D7;
+      padding: 40px 40px 10px 40px;
+  }
+  .table-col{
+      background-color: #E4E8F8;
+      margin-top: 20px;
+      padding: 50px 0 50px 0;
+  }

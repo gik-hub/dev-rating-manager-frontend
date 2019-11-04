@@ -8,6 +8,7 @@ import Header from './shared/Header';
 import HomePage from './HomePage';
 import ProfilePage from './ProfilePage';
 import AuthPage from './AuthPage';
+import singleEngineer from './singleEngineer';
 import NotFoundPage from './shared/NotFound';
 import '../styles/App.scss';
 
@@ -50,6 +51,7 @@ class App extends Component {
                     <Route exact path="/" component={HomePage} />
                     <Route path="/profile" component={ProfilePage} />
                     <Route path="/login" component={AuthPage} />
+                    <Route path="/user/:id" component={singleEngineer} />
                     <Route component={NotFoundPage} />
                 </Switch>
             </Provider>

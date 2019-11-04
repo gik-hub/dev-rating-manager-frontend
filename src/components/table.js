@@ -51,7 +51,7 @@ class Table extends Component {
     return (
       <div>
         <p className='tableHeader'>My Developers Average Score</p>
-        <table className="table">
+        <table className="table table-bg">
           <tbody>
             <tr>
               {columns.map(column => <th key={column}>{column}</th>)}

@@ -6,7 +6,11 @@ const TableBody = ({ data }) => {
     return (
         <React.Fragment>
             {data.map((item, i) => <tr key={i}>
-                <td style={{ color: 'rgb(100, 118, 227)' }}>{item.name}</td>
+                <td style={{ color: 'rgb(100, 118, 227)' }}>
+                    <Link to={`user/${item.id}`}>
+                        {item.name}
+                    </Link>
+                </td>
                 <td style={item.quality >= 1 ? { color: 'green' } : { color: 'red' }}>{item.quality}</td>
                 <td style={item.quantity >= 1 ? { color: 'green' } : { color: 'red' }}>{item.quantity}</td>
                 <td style={item.initiative >= 1 ? { color: 'green' } : { color: 'red' }}>{item.initiative}</td>
