@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -22,6 +23,11 @@ module.exports = {
         https: false
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env.API_URL": JSON.stringify('https://dev-rating-manager-staging.herokuapp.com/api/v1/')
+            // "process.env.API_URL": JSON.stringify('http://localhost:3000/api/v1/')
+
+        }),
         new HtmlWebpackPlugin({
             template: 'public/index.html',
         })
