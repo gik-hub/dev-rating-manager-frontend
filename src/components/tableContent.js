@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link, BrowserRouter as Router } from 'react-router-dom'
 
 const TableBody = ({ data }) => {
     console.log('the data here is : ', data);
@@ -13,9 +13,9 @@ const TableBody = ({ data }) => {
                 <td style={item.integration >= 1 ? { color: 'green' } : { color: 'red' }}>{item.integration}</td>
                 <td style={item.communication >= 1 ? { color: 'green' } : { color: 'red' }}>{item.communication}</td>
                 <td style={item.professionalism >= 1 ? { color: 'green' } : { color: 'red' }}>{item.professionalism}</td>
-                <td><Link to={'/rate'}>
+                <td><Router><Link to={'/rate'}>
                     <button className="button"> Rate </button>
-                </Link></td>
+                </Link></Router></td>
             </tr>
             )}
         </React.Fragment>
