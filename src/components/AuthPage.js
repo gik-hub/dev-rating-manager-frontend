@@ -24,6 +24,9 @@ export class AuthPage extends Component {
     }
 
     componentDidMount() {
+        if(localStorage.getItem('pulseToken')){
+            this.props.getProfile();
+        }
         const { location } = this.props;
         const base64encoded = location.search.split('&')[0].split('?code=')[1];
         if (base64encoded) {
@@ -34,6 +37,9 @@ export class AuthPage extends Component {
 
     componentWillReceiveProps(nextProps) {
         const { auth, history, profile, getProfile } = nextProps;
+        if (auth.user.token) {
+            localStorage.setItem('pulseToken', auth.user.token);
+        }
         if(localStorage.getItem('pulseToken')){
             getProfile();
         }
@@ -49,13 +55,6 @@ export class AuthPage extends Component {
                     history.push('/add-lf');  
                     break;
             }
-        }
-        if (auth.user.token && !localStorage.getItem('pulseToken')) {
-            localStorage.setItem('pulseToken', auth.user.token);
-            history.push('/login');
-        } else {
-            //TODO: log toast 
-            // console.log(`error -> ${this.props.auth.errors.message}`);
         }
     }
     render() {

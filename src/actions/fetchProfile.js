@@ -14,6 +14,7 @@ export const fetchProfile = () => async (dispatch) => {
             response: response.data,
         });
     } catch(error) {
+        console.log(error.response);
         dispatch({
             type: FETCH_PROFILE_ERROR,
             response: error.response.data.message,
